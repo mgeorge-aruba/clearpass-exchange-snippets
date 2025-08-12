@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TipsContents xmlns="http://www.avendasys.com/tipsapiDefs/1.0">
+  <TipsHeader exportTime="Thu Jun 12 20:10:30 IST 2014" version="6.3"/>
+  <SyslogTargets>
+    <SyslogTarget protocol="TCP" port="1468" description="Splunk receiver" hostAddress="10.2.101.111"/>
+  </SyslogTargets>
+  <SyslogExportConfigurations>
+    <SyslogExportData description="" name="CPPM_System_Event" enabled="true" customSql="SELECT source as event_source, level, category, description, action_key, timestamp     FROM tips_system_events   WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_RADCOA_Session_Detail" enabled="true" customSql="SELECT   id, session_id, attr_name, attr_value, timestamp   FROM tips_radcoa_session_log_details    WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Policy_Server_Session" enabled="true" customSql="SELECT id as session_id,monitor_mode,auth_type,roles,audit_apt,spt,enf_profiles,timestamp  FROM tips_policy_server_session_log  WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_System_Stat" enabled="true" customSql="SELECT id, swap_size_used, slash_size_used, swap_memory_avail, system_memory_avail, cpu_raw_user, cpu_raw_nice, cpu_raw_system, cpu_raw_idle, mgmt_inf_status, data_inf_status, uptime, timestamp     FROM tips_sysmon_system_stats    WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_RADIUS_Session" enabled="true" customSql="SELECT id as session_id, user_name, service_name, auth_method, auth_source, nas_ip, nas_port, end_host_id, request_status, error_code, timestamp   FROM tips_radius_session_log WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_TACACS_Session" enabled="true" customSql="SELECT server_id , user_session_id,  session_id , request_type , user_name , nas_ip , port, remote_address, priv_level, authen_action, authen_type, authen_method,  authen_service, service_name,  auth_source, tips_roles, tacacs_profiles, request_status,  error_code,  timestamp  FROM tips_tacacs_session_log WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Post_Auth_Monit_Config" enabled="true" customSql="SELECT id as session_id, mac_address, user_id, entity_name, monit_data, enforce_status, profile_id, timestamp  FROM tips_post_auth_monit_config WHERE  ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_RADIUS_Accounting_Detail" enabled="true" customSql="SELECT id, session_id, acct_session_id, type, attr_name, attr_value, timestamp    FROM tips_radius_accounting_details_log          WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_DHCP_Snooping_Info" enabled="true" customSql="SELECT mac_address, ip_address, location, hostname, timestamp  FROM tips_dhcp_snooping_info                         WHERE (('1970-01-01 00:00:00 GMT'::timestamp &gt;= --START-TIME--) AND ('1970-01-01 00:00:00 GMT'::timestamp&lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Endpoint_Profile" enabled="true" customSql="SELECT mac as mac_address, ip as ip_address, static_ip, hostname, username, nad_ip as nas_ip, mac_vendor, device_category, device_family, device_name, fingerprint, updated_at, added_at         FROM tips_endpoint_profiles                          WHERE ((updated_at &gt;= --START-TIME--) AND (updated_at &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Dashboard_Summary" enabled="true" customSql="SELECT id as session_id, source as req_source ,user_name,service_name,alerts_present,nas_ip,nas_port,conn_status,login_status,error_code,host_mac as mac_address,timestamp,write_timestamp  FROM tips_dashboard_summary  WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_WEBAUTH_Session" enabled="true" customSql="SELECT id as session_id, host_mac as mac_address, host_ip as ip_address, auth_source, timestamp    FROM  tips_webauth_session_log    WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_RADCOA_Session_Log" enabled="true" customSql="SELECT  session_id, mac_address, user_name, nas_ip, nas_port, request_id, action_id,  action_type, action_name, action_display_name, application_name, status_code,   status_msg, timestamp   FROM tips_radcoa_session_log WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Proc_Stats" enabled="true" customSql="SELECT id , process_id, cpu_usage, res_mem_usage, virt_mem_usage, timestamp  FROM  tips_sysmon_proc_stats WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_TACACS_Accounting_Detail" enabled="true" customSql="SELECT id,session_id,attr_name,attr_value, timestamp   FROM tips_tacacs_accounting_details  WHERE((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_SNMP_Session_Log" enabled="true" customSql="SELECT id as session_id, host_mac as mac_address, nad_ip as nas_ip, port_index, port_name, enf_profiles, timestamp    FROM tips_snmp_session_log  WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Alert" enabled="true" customSql="SELECT session_id, service_name, alert, timestamp     FROM tips_alerts    WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_RADIUS_Accounting" enabled="true" customSql="SELECT seq_num, id as session_id, user_name, nas_ip_address as nas_ip, nas_port, nas_port_type,   calling_station_id, called_station_id, framed_ip_address as ip_address, service_type, acct_status_type, acct_delay_time, acct_input_octets, acct_output_octets, acct_input_packets, acct_output_packets, acct_session_id, acct_authentic, acct_session_time, acct_terminate_cause, timestamp  FROM tips_radius_accounting_log WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_TACACS_Accouting_Record" enabled="true" customSql="SELECT id, session_id, flags, user_name, nas_ip, port, remote_address, priv_level, authen_type,  authen_method,  authen_service, timestamp  FROM tips_tacacs_accounting_records WHERE ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Session_Detail" enabled="true" customSql="SELECT id, session_id,type, attr_name,attr_value, timestamp   FROM tips_session_log_details            WHERE        ((timestamp &gt;= --START-TIME--) AND (timestamp &lt;= --END-TIME--))" exportTemplate="Session Logs">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+    <SyslogExportData description="" name="CPPM_Audit_Record" enabled="true" exportTemplate="Audit Records">
+      <SyslogServerNameList>
+        <string>10.2.101.111</string>
+      </SyslogServerNameList>
+    </SyslogExportData>
+  </SyslogExportConfigurations>
+</TipsContents>
+
